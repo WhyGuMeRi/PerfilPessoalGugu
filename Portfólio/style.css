@@ -1,0 +1,822 @@
+/* Estilo Geral*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --neon-green: #37ff8b;
+  font-size: 62.5%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+body {
+  background-color: #000;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+section {
+  padding-block: 10rem;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+  background-color: #111111;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 0.5rem;
+  background-color: var(--neon-green);
+}
+
+/* ESTILIZAÇÃO DA SEÇÃO 1 COMEÇO */
+
+.video-background {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Ocupa a altura total da viewport */
+  overflow: hidden;
+}
+
+.video-background video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  object-fit: cover;
+  width: 100%;
+  height: 100vh;
+
+  filter: brightness(0.8);
+}
+
+.video-background .content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.video-background .content .sobre-mim span{
+  font-size: 30px;
+}
+
+.menu-desktop{
+  font-size: 16px;
+}
+
+.menu-desktop ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu-desktop ul li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.menu-desktop ul li a{
+  text-decoration: none;
+  font-size: 2rem;
+  color: var(--neon-green);
+}
+
+.menu-desktop li a::after {
+  content: '';
+  width: 0%;
+  height: 3px;
+  border-radius: 2rem;
+  background-color: var(--neon-green);
+
+  position: relative;
+  bottom: 0rem;
+  left: 0rem;
+  display: block;
+
+  transition: width 300ms ease-in-out;
+}
+
+.menu-desktop li a:hover::after {
+  padding-inline: 0rem;
+  width: 100%;
+}
+
+.interface {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Estilo do Cabeçalho */
+.home {
+  padding: 15px;
+  position: absolute; /* Fixar no topo */
+  z-index: 10;
+  top: 0;
+  width: 100%; /* Garantir que o header preencha a largura da tela */
+  background-color: rgba(0, 0, 0, 0.1); /* Fundo semitransparente */
+  backdrop-filter: blur(2px); /* Efeito de desfoque no fundo */
+  max-height: 50px;
+}
+
+.home > .interface {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home .interface .logo img {
+  max-height: 120px;
+}
+
+.home a {
+  color: var(--neon-green);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.home .menu-desktop {
+  list-style-type: none;
+}
+
+.home .menu-desktop ul li {
+  display: inline-block;
+  padding: 0 40px;
+}
+
+/* === Removendo Estilo Padrão de Botão === */
+.button {
+  margin: 0;
+  height: auto;
+  background: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+/* Estilizando o Botão */
+.button {
+  --border-right: 6px;
+  --text-stroke-color: rgba(255, 255, 255, 0.6);
+  --animation-color: var(--neon-green);
+  --fs-size: 2em;
+  letter-spacing: 3px;
+  text-decoration: none;
+  font-size: var(--fs-size);
+  font-family: "Arial";
+  position: relative;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+
+.hover-text {
+  position: absolute;
+  box-sizing: border-box;
+  content: attr(data-text);
+  color: var(--animation-color);
+  width: 0%;
+  inset: 0;
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: 0.5s;
+  -webkit-text-stroke: 1px var(--animation-color);
+}
+
+/* Passe o mouse */
+.button:hover .hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 23px var(--animation-color));
+}
+
+/* Botão Header - Começo */
+.btn-header {
+  padding: 0.1em 0.25em;
+  width: 10em; /* Ajuste a largura do botão */
+  height: 4.2em;
+  background-color: var(--neon-green);
+  border: 0.08em solid #fff;
+  border-radius: 0.3em;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.btn-header span {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0.4em;
+  width: 6.32em; /* Ajuste a largura do conteúdo interno */
+  height: 2.5em;
+  background-color: var(--neon-green);
+  border-radius: 0.2em;
+  font-size: 1.5em;
+  font-weight: 700;
+  color: #000;
+  border: 0.08em solid #fff;
+  box-shadow: 0 0.4em 0.1em 0.019em #fff;
+}
+
+.btn-header span:hover {
+  transition: all 0.5s;
+  transform: translate(0, 0.4em);
+  box-shadow: 0 0 0 0 #fff;
+}
+
+.btn-header span:not(hover) {
+  transition: all 1s;
+}
+
+/* Botão Header - Fim */
+
+/* Card de Rede Social*/
+.card {
+  max-width: fit-content;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  gap: 1rem;
+  backdrop-filter: blur(15px);
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.192),
+    inset 0 0 5px rgba(255, 255, 255, 0.274), 0 5px 5px rgba(0, 0, 0, 0.164);
+  transition: 0.5s;
+
+  position: absolute;
+  left: 20px;
+  bottom: 40px;
+}
+
+.card:hover {
+  animation: ease-out 5s;
+  background: rgba(173, 173, 173, 0.05);
+}
+
+.card ul {
+  padding: 1rem;
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.card ul li {
+  cursor: pointer;
+}
+
+.svg {
+  transition: all 0.3s;
+  /* if you find some problems change w - h : 30px*/
+  padding: 1rem;
+  height: 60px;
+  width: 60px;
+  border-radius: 100%;
+  color: var(--neon-green);
+  fill: currentColor;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.3),
+    inset 0 0 5px rgba(255, 255, 255, 0.5), 0 5px 5px rgba(0, 0, 0, 0.164);
+}
+
+.text {
+  opacity: 0;
+  border-radius: 5px;
+  padding: 5px;
+  transition: all 0.3s;
+  color: var(--neon-green);
+  background-color: rgba(255, 255, 255, 0.3);
+  position: absolute;
+  z-index: 9999;
+  box-shadow: -5px 0 1px rgba(153, 153, 153, 0.2),
+    -10px 0 1px rgba(153, 153, 153, 0.2),
+    inset 0 0 20px rgba(255, 255, 255, 0.3),
+    inset 0 0 5px rgba(255, 255, 255, 0.5), 0 5px 5px rgba(0, 0, 0, 0.082);
+}
+
+/*isometric prooyection*/
+.iso-pro {
+  transition: 0.5s;
+}
+.iso-pro:hover a > .svg {
+  transform: translate(15px, -15px);
+  border-radius: 100%;
+}
+
+.iso-pro:hover .text {
+  opacity: 1;
+  transform: translate(25px, -2px) skew(-5deg);
+}
+
+.iso-pro:hover .svg {
+  transform: translate(5px, -5px);
+}
+
+.iso-pro span {
+  opacity: 0;
+  position: absolute;
+  color: #1877f2;
+  border-color: #1877f2;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.3),
+    inset 0 0 5px rgba(255, 255, 255, 0.5), 0 5px 5px rgba(0, 0, 0, 0.164);
+  border-radius: 50%;
+  transition: all 0.3s;
+  height: 60px;
+  width: 60px;
+}
+
+.iso-pro:hover span {
+  opacity: 1;
+}
+
+.iso-pro:hover span:nth-child(1) {
+  opacity: 0.2;
+}
+
+.iso-pro:hover span:nth-child(2) {
+  opacity: 0.4;
+  transform: translate(5px, -5px);
+}
+
+.iso-pro:hover span:nth-child(3) {
+  opacity: 0.6;
+  transform: translate(10px, -10px);
+}
+
+/* Botão Toggle */
+.switch {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.switch input {
+  margin-right: 10px;
+}
+
+label {
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* ESTILIZAÇÃO DA SEÇÃO 1 - HOME -  FIM */
+
+/* ESTILIZAÇÃO DA SEÇÃO 2 - SOBRE MIM -  COMEÇO */
+
+/* Container principal */
+.aboutcontent {
+  width: 100%;
+  height: 100%;
+  margin-inline: auto;
+  padding-inline: 2.4rem;
+  display: flex;
+  align-items: center; /* Alinhar os itens ao topo */
+  justify-content: center;
+  gap: 2rem; /* Espaçamento entre imagem e texto */
+}
+
+/* Seção do 'sobre-mim' */
+#sobre-mim {
+  width: 100%;
+  height: 100vh;
+  position: relative; /* Alterado para evitar problemas de layout com position: absolute */
+  overflow: hidden;
+  padding: 2rem; /* Adicionado padding para espaçamento interno */
+  background: rgba(0, 0, 0, 0.519);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.082);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+/* Imagem e seu container */
+#sobre-mim .imgcontent {
+  width: 50%; /* Define a largura do container da imagem */
+  flex-shrink: 0; /* Impede que o container da imagem diminua se faltar espaço */
+}
+
+#sobre-mim .imgcontent img {
+  width: 50%; /* Mantém a imagem com 100% da largura da div pai */
+  height: auto; /* Mantém a proporção da imagem */
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 19px 19px 30px #1818182d, -19px -19px 30px #2020201f;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  animation: move 3s ease-in-out infinite;
+}
+
+#sobre-mim .imgcontent img:hover {
+  box-shadow: 0 0 20px var(--neon-green), 0 0 40px var(--neon-green), 0 0 60px var(--neon-green);
+  transform: scale(1.05); /* Opcional: aumenta ligeiramente a imagem */
+}
+
+/* Conteúdo de texto ao lado da imagem */
+#sobre-mim .aboutmecontent {
+  flex-grow: 1; /* Faz o texto ocupar o espaço restante */
+  width: 50%;
+}
+
+#sobre-mim .aboutmecontent header h2 {
+  font-size: 4rem;
+  color: #e4e4e4;
+  text-align: left;
+}
+
+#sobre-mim .aboutmecontent .textcontent {
+  text-align: left;
+}
+
+#sobre-mim .aboutmecontent .textcontent p {
+  font-weight: 300;
+  color: #6e6e6e;
+  font-size: 1.6rem;
+  font-family: "Poppins", sans-serif;
+}
+
+#sobre-mim .aboutmecontent .textcontent p span {
+  font-weight: 600;
+}
+
+#sobre-mim .aboutmecontent .textcontent ul {
+  margin-top: 3rem;
+  margin-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: start;
+  text-align: left;
+}
+
+#sobre-mim .aboutmecontent .textcontent ul li {
+  font-size: 1.4rem;
+  color: #9b9b9b;
+  list-style: disc;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+}
+
+#sobre-mim .aboutmecontent .textcontent a{
+  text-decoration: none;
+  color: #e4e4e4;
+}
+
+#sobre-mim .aboutcontent .textcontent a button{
+  font-family: "Poppins", sans-serif;
+
+  margin-top: 2rem;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  background-color: transparent;
+  outline: 1px solid #e4e4e4;
+  color: #e4e4e4;
+  font-weight: 700;
+  border: none;
+
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 200ms ease-in-out;
+}
+
+#sobre-mim .aboutcontent .textcontent a button:hover{
+  background-color: #e4e4e4;
+  color: #111111;
+  box-shadow: 5px 5px 10px #000;
+  cursor: pointer;
+}
+
+#sobre-mim .aboutcontent .textcontent a button:hover ion-icon{
+  color: #111111;
+  animation: moveicon 2s ease-in-out infinite;
+}
+
+#sobre-mim .aboutcontent .textcontent a button ion-icon{
+  color: #e4e4e4;
+  font-size: 2rem;
+}
+
+/* ESTILIZAÇÃO DA SEÇÃO 2 - SOBRE-MIM - FIM */
+
+/* ESTILIZAÇÃO DA SEÇÃO 3 - COMPETENCIAS - COMEÇO */
+
+#conhecimentos{
+  width: 100%;
+  height: 100vh;
+  position: relative; /* Alterado para evitar problemas de layout com position: absolute */
+  overflow: hidden;
+  padding: 2rem; /* Adicionado padding para espaçamento interno */
+  background: rgba(0, 0, 0, 0.519);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.082);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+#conhecimentos .skillscontent{
+  display: grid;
+  align-items: center; /* Centraliza verticalmente */
+  justify-items: center; /* Centraliza horizontalmente */
+  height: 100%;
+}
+
+.skillscontent header{
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  height: 100%;
+}
+
+.skillscontent header h2{
+  font-size: 4rem;
+  color: #e4e4e4;
+  text-align: center;
+}
+
+.skillscontent header h2::after{
+  content: '';
+  width: 0%;
+  height: 3px;
+  border-radius: 2rem;
+  background-color: #e4e4e4;
+
+  position: relative;
+  bottom: 0rem;
+  left: 0rem;
+  display: block;
+
+  transition: width 200ms ease-in-out;
+}
+
+.skillscontent header h2:hover:after{
+  padding-inline: 0rem;
+  width: 100%;
+}
+
+.container {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  gap: 2rem; /* Espaçamento entre as caixas */
+  width: 70%;
+}
+
+.container ion-icon{
+  color: #e4e4e4;
+  font-size: 4rem;
+}
+
+.container .glass {
+  position: relative;
+  width: 180px;
+  height: 200px;
+  background: linear-gradient(#fff2, transparent);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  border-radius: 10px;
+  margin: 0 -45px;
+  backdrop-filter: blur(10px);
+  transform: rotate(calc(var(--r) * 1deg));
+}
+
+.container:hover .glass {
+  transform: rotate(0deg);
+  margin: 0 10px;
+}
+
+.container .glass::before {
+  content: attr(data-text);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.container .glass svg {
+  font-size: 2.5em;
+  fill: #fff;
+}
+
+.container2 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem; /* Espaçamento entre as caixas */
+  width: 70%;
+}
+
+.container2 ion-icon{
+  color: #e4e4e4;
+  font-size: 4rem;
+}
+
+.container2 .glass2 {
+  position: relative;
+  width: 180px;
+  height: 200px;
+  background: linear-gradient(#fff2, transparent);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  border-radius: 10px;
+  margin: 0 -45px;
+  backdrop-filter: blur(10px);
+  transform: rotate(calc(var(--r) * 1deg));
+}
+
+.container2:hover .glass2 {
+  transform: rotate(0deg);
+  margin: 0 10px;
+}
+
+.container2 .glass2::before {
+  content: attr(data-text);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.container2 .glass2 svg {
+  font-size: 2.5em;
+  fill: #fff;
+}
+
+/* ESTILIZAÇÃO DA SEÇÃO 3 - COMPETENCIAS - FIM */
+
+/* ESTILIZAÇÃO DA SEÇÃO 4 - CERTIFICADOS - COMEÇO */
+
+#projetos {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.519);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.082);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.projectcontent {
+  display: grid;
+  align-items: center;
+  justify-content: center; /* Centraliza no topo */
+  height: 100%;
+  gap: 1rem; /* Adiciona espaçamento entre os elementos do header e o parágrafo */
+}
+
+.projectcontent header {
+  text-align: center;
+}
+
+.projectcontent header h2 {
+  font-size: 4rem;
+  color: #e4e4e4;
+}
+
+.projectcontent header h2::after{
+  content: '';
+  width: 0%;
+  height: 3px;
+  border-radius: 2rem;
+  background-color: #e4e4e4;
+
+  position: relative;
+  bottom: 0rem;
+  left: 0rem;
+  display: block;
+
+  transition: width 200ms ease-in-out;
+}
+
+.projectcontent header h2:hover:after{
+  padding-inline: 0rem;
+  width: 100%;
+}
+
+.projectcontent p {
+  font-weight: 300;
+  color: #6e6e6e;
+  font-size: 1.6rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.projectcontent span {
+  font-weight: 600;
+}
+
+.Btn {
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(#37ff8b, #37ff8b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  border: none;
+}
+
+.arrow path {
+  fill: white;
+}
+
+.textbtn {
+  font-size: 0.7em;
+  width: 100px;
+  position: absolute;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: -40px;
+  opacity: 0;
+  transition-duration: .7s;
+}
+
+.Btn:hover .textbtn {
+  opacity: 1;
+  transition-duration: .7s;
+}
+
+.Btn:hover .arrow {
+  animation: slide-in-bottom .7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.botaovoltar{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes slide-in-bottom {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+
+
+
+@keyframes move {
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes moveicon {
+  50% {
+    transform: translateX(5px);
+  }
+}
